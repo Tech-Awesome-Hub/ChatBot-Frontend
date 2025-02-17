@@ -4,7 +4,6 @@ import LoginForm from "./pages/Login.page";
 import SignupForm from "./pages/Signup.page";
 import ChatApp from "./pages/ChatApp.page";
 import "./style/Auth.style.css";
-// import "./style/App.style.css";
 
 const App = () => {
   return (

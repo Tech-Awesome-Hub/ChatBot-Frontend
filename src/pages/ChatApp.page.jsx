@@ -137,7 +137,7 @@ const ChatApp = () => {
             sender: m.sender,
             avatar:
               m.sender === "user"
-                ? "https://i.pravatar.cc/50?img=1"
+                ? defualt_logo
                 : "/bot-avatar.png",
           }))
         );
@@ -212,7 +212,7 @@ const ChatApp = () => {
     const userMessage = {
       text: query,
       sender: "user",
-      avatar: "https://i.pravatar.cc/50?img=1",
+      avatar: defualt_logo,
     };
     setMessages((prev) => [...prev, userMessage]);
 

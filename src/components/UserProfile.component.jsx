@@ -36,7 +36,7 @@ const UserProfileModal = ({
       formData.append("avatar", file);
 
       // 2) Upload to server
-      const res = await axios.post("http://localhost:8000/upload", formData, {
+      const res = await axios.post("https://powerbi-chatbot.onrender.com/upload", formData, {
         headers: { "Content-Type": "multipart/form-data" },
         withCredentials: true,
       });
@@ -54,7 +54,7 @@ const UserProfileModal = ({
 
    // Called when the user clicks the avatar
    const handleAvatarClick = () => {
-     // Trigger a click on the hidden file input
+  
      hiddenFileInput.current.click();
    };
  
