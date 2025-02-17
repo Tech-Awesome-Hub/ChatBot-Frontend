@@ -1,0 +1,116 @@
+/* Container that covers bottom-right corner */
+.user-profile-modal {
+    position: fixed;
+    bottom: 0px;
+    left: 50px;
+    width: 400px;        /* adjust as needed */
+    max-width: 90vw;     /* responsive fallback on small screens */
+    transform: translateY(100%);  /* hidden below the bottom edge */
+    transition: transform 0.3s ease;
+    z-index: 9999;       /* on top of other content */
+    display: flex;
+    justify-content: center;
+  }
+  
+  /* Show the modal by sliding up */
+  .user-profile-modal.show {
+    transform: translateY(0);
+  }
+  
+  /* The content box inside the container */
+  .profile-modal-content {
+    background: #fff;
+    width: 100%;
+    border-radius: 12px 12px 0 0;  /* rounded top corners */
+    box-shadow: 0 -2px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    max-height: 80vh;   /* ensure scroll on small screens */
+  }
+  
+  /* Header */
+  .profile-modal-header {
+    background: #eee;
+    color: #fff;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .profile-modal-header h5 {
+    margin: 0;
+    color: #000;
+  }
+  
+  .close-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #000;
+    cursor: pointer;
+  }
+  
+  /* Body */
+  .profile-modal-body {
+    padding: 16px;
+    overflow-y: auto;  /* if content is long, scroll inside */
+  }
+
+  .avatar-preview img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+  }
+  
+  .avatar-preview {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  
+  .form-group {
+    margin-bottom: 16px;
+  }
+  
+  .form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  
+  .form-group input,
+  .form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+
+  .notify-setup {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    gap: 10px !important;
+  }
+
+  .notify-setup input {
+    width: 25px;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .user-profile-modal {
+      width: 90%;
+      max-width: 100%;
+      left: 5%;
+      bottom: 0px;
+    }
+    .profile-modal-content {
+      border-radius: 12px 12px 0 0;
+    }
+  }
+  
