@@ -52,7 +52,7 @@
 
   /* Adjust chat-container to remove extra padding if needed */
   .chat-container {
-    height: 100vh;
+    height: 100dvh;
     width: 100vw;
     display: flex;
     justify-content: center;
@@ -61,10 +61,6 @@
     overflow: hidden;
     padding: 0;  /* Remove extra padding for full-screen fit */
     margin: 0;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    box-sizing: border-box;
   }
 
   .dark-mode .chat-container, .dark-mode .top-bar {
