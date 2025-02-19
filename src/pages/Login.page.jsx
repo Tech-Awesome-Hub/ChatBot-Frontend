@@ -62,13 +62,21 @@ const LoginForm = () => {
 
             <Button variant="primary" type="submit" className="w-100">Login</Button>
           </Form>
-
-          <p className="text-center mt-3">
-            Don't have an account?{" "}
-            <span className="switch-link" onClick={() => navigate("/signup")}>
-              Sign Up
+          <div className="mt-3 auth-others">
+            <p className="text-center">
+              {" "}
+              <span className="switch-link" onClick={() => navigate("/signup")}>
+                Sign Up
+              </span>
+            </p>
+            <p className="text-center">
+              {" "}
+            <span className="switch-link" onClick={() => navigate("/reset-password")}>
+              Forgot Password
             </span>
-          </p>
+           </p>
+          </div>
+          
         </Card.Body>
       </Card>
     </Container>

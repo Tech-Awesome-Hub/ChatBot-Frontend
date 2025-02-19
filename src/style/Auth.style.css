@@ -1,13 +1,14 @@
 /* 🌟 General Layout */
 .auth-container {
-    min-height: 100vh;
+    min-height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #ffffff;
+    background: transparent;
     padding: 20px;
     width: 100vw;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 /* 🌟 Auth Card Styling */
@@ -43,6 +44,7 @@
     border: 1px solid #ccc;
     transition: all 0.3s ease;
     background: white !important;
+    color: #000 !important;
 }
 
 .auth-card .form-control:focus {
@@ -91,6 +93,7 @@
 .auth-card .btn-primary:hover {
     background: #FFF;
     color: #000;
+    border: 0.8px solid #000;
 }
 
 /* 🌟 Password Toggle Button */
@@ -114,6 +117,12 @@
 
 .auth-card a:hover {
     text-decoration: underline;
+}
+
+.auth-others {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
 }
 
 /* 🌟 Responsive Design */
@@ -142,7 +151,6 @@
     }
     .auth-form {
         max-width: 300px;
-        background-color: #74ebd5;
     }
     .input-group-text {
         font-size: 22px;
