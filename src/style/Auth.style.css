@@ -138,11 +138,10 @@
 @media (max-width: 1024px) { /* Tablets */
     .auth-card {
         width: 100%;
-        max-width: 400px;
+        max-width: 350px;
     }
     .auth-form {
-        width: 80vw;
-        max-width: 350px; 
+        max-width: 350px;
     }
     .input-group-text {
         font-size: 22px;
@@ -153,12 +152,11 @@
 
 @media (max-width: 768px) { /* Mobile */
     .auth-card {
-        max-width: 350px;
+        max-width: 300px;
     }
 
     .auth-form {
-        width: 90vw;
-        max-width: 300px; 
+        max-width: 250px; 
     }
 
     .input-group-text {
@@ -174,15 +172,11 @@
 
 @media (max-width: 480px) { /* Small Mobile */
     .auth-card {
-        width: 95%;
-        padding: 5px;
         max-width: 300px; 
-        overflow: hidden;
     }
     
     .auth-form {
-        width: 100%;
-        max-width: 400px; 
+        max-width: 250px; 
     }
 
     .input-group-text {
