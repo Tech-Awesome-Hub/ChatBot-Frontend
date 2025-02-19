@@ -14,6 +14,8 @@ const LoginForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    navigate("/chat.ai");
+    return;
     try {
       const res = await axios.post("https://powerbi-chatbot.onrender.com/login", {
         email: formData.email,

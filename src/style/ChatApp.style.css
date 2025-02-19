@@ -23,10 +23,6 @@
 /* ============================================================
    Full-Screen Chat Box
 ============================================================ */
-.chat-app {
-    margin: 0;
-    padding: 0;
-}
 
 .top-bar {
     width: 100vw;
@@ -64,6 +60,10 @@
     background: var(--bg-light);
     overflow: hidden;
     padding: 0;  /* Remove extra padding for full-screen fit */
+    margin: 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
     box-sizing: border-box;
   }
 
