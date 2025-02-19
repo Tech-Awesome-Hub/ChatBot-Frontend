@@ -24,6 +24,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: #000 !important;
 }
 
 /* 🌟 Form */
@@ -41,11 +42,13 @@
     height: 50px;
     border: 1px solid #ccc;
     transition: all 0.3s ease;
+    background: white !important;
 }
 
 .auth-card .form-control:focus {
     border-color: #74ebd5;
     box-shadow: 0 0 10px rgba(116, 235, 213, 0.5);
+    background: white !important;
 }
 
 /* 🌟 Input Group Styling (Icons + Fields Aligned) */
@@ -155,7 +158,7 @@
 
     .auth-form {
         width: 80vw;
-        max-width: 400px; 
+        max-width: 300px; 
     }
 
     .input-group-text {
@@ -171,14 +174,14 @@
 
 @media (max-width: 480px) { /* Small Mobile */
     .auth-card {
-        width: 90%;
+        width: 95%;
         padding: 5px;
         overflow: hidden;
     }
     
     .auth-form {
         width: 80vw;
-        max-width: 400px; 
+        max-width: 250px; 
     }
 
     .input-group-text {
