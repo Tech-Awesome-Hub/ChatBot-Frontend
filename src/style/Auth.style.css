@@ -141,7 +141,8 @@
         max-width: 350px;
     }
     .auth-form {
-        max-width: 350px;
+        max-width: 300px;
+        background-color: #74ebd5;
     }
     .input-group-text {
         font-size: 22px;
@@ -152,6 +153,7 @@
 
 @media (max-width: 768px) { /* Mobile */
     .auth-card {
+        width: 100%;
         max-width: 300px;
     }
 
