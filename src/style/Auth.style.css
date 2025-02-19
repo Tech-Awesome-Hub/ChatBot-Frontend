@@ -1,10 +1,11 @@
 /* 🌟 General Layout */
 .auth-container {
     min-height: 100%;
+    max-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: transparent;
+    background: white;
     padding: 20px;
     width: 100vw;
     box-sizing: border-box;
