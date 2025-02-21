@@ -34,7 +34,7 @@ const SignupForm = () => {
         withCredentials: true
       }
     );
-      alert("Signup Successful!");
+      // alert("Signup Successful!");
       navigate("/login");
     } catch (err) {
       alert(err.response?.data?.detail || "Signup failed");

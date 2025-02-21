@@ -319,7 +319,7 @@ const ChatApp = () => {
                ))}
 
                {/* Create new chat session */}
-               <div style={{ marginTop: "10px" }}>
+               <div style={{ marginTop: "10px", color: "#000 !important"}}>
                  <Form.Control
                    type="text"
                    placeholder="New chat title"
@@ -361,12 +361,12 @@ const ChatApp = () => {
                   <Card className="p-2 message-bubble">{msg.text}</Card>
                 </div>
               ))}
-              <div className='message'>
+              {/* <div className='message'>
                  
                     <Image src="" roundedCircle className="message-avatar" />
                     <FaRobot size={40} className="me-2" />
                   <Card className="p-2 message-bubble">chat</Card>
-                </div>
+                </div> */}
               <div ref={chatEndRef} />
             </div>
 

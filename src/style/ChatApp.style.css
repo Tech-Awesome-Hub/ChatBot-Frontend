@@ -452,6 +452,7 @@
       width: 300px;
       background: #eee;
       z-index: 1;
+      transition: 0.3s;
     }
 
     .sidebar.open {
@@ -491,7 +492,12 @@
         left: -250px;
         width: 250px;
         background: #eee;
+        transition: 0.3s;
       }
+
+      /* .sidebar-header {
+        justify-content: space-between;
+      } */
 
       .sidebar.open {
         left: 0;
