@@ -265,9 +265,12 @@ const ChatApp = () => {
 
    // 1) Load Chat Sessions on Mount
   useEffect(() => {
-    loadChatSessions();
+    // loadChatSessions();
     // loadProfile()
-  }, []);
+    if (chatSessions.length === 0) {
+      loadChatSessions();
+    }
+  }, [chatSessions]);
 
   // 8) Scroll to bottom on new messages
   useEffect(() => {
@@ -305,7 +308,7 @@ const ChatApp = () => {
             </div>
             <div className="sidebar-body">
               {/* List all chat sessions */}
-               {chatSessions.map((session) => (
+               {(Array.isArray(chatSessions) ? chatSessions : []).map((session) => (
                  <div
                    key={session.id}
                    className="user"
@@ -351,7 +354,7 @@ const ChatApp = () => {
 
             {/* Chat Messages */}
             <div className="chat-messages">
-              {messages.map((msg, index) => (
+              {(Array.isArray(messages) ? messages : []).map((msg, index) => (
                 <div key={index} className={`message ${msg.sender === "user" ? "sent" : "received"}`}>
                   {msg.sender === "user" ? (
                     <Image src={msg.avatar} roundedCircle className="message-avatar" />
