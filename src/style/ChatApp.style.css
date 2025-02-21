@@ -468,11 +468,11 @@
       }
        .message-bubble {    font-size: 12px;   padding: 8px;  }
        .chat-section {
-        padding-top: env(safe-area-inset-top, 50px);
+        padding-top: env(safe-area-inset-top, 13%);
         background-color: gray;
        }
        .chat-messages {
-        padding-top: 13%;
+        padding-top: 25%;
         position: relative;
         top: 0;
         /* background-color: red; */
