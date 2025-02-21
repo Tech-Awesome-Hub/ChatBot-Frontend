@@ -262,9 +262,6 @@ const ChatApp = () => {
     }
   };
 
-  const handleShowSideBar = () => {
-    
-  }
 
    // 1) Load Chat Sessions on Mount
   useEffect(() => {
@@ -277,6 +274,7 @@ const ChatApp = () => {
     chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <Container fluid className={`chat-container ${darkMode ? "dark-mode" : ""}`}>
       <Row className={`chat-app ${darkMode ? "dark-mode" : ""}`}>
@@ -298,7 +296,7 @@ const ChatApp = () => {
           </Col>
 
           {/* Sidebar */}
-          <Col md={4} className={`sidebar d-none d-md-flex flex-column ${darkMode ? "dark-mode" : ""}`}>
+          <Col md={4} className={`sidebar d-none d-md-flex flex-column ${darkMode ? "dark-mode" : ""} ${isOpen ? "open" : ""}`}>
             <div className="sidebar-header">
               <h4 className="text-white">Chats</h4>
               <Button variant="outline-light" size="sm" onClick={() => setDarkMode(!darkMode)} className={`${darkMode ? "dark-mode" : ""}`}>
@@ -339,7 +337,7 @@ const ChatApp = () => {
           <Col md={8} xs={12} className="chat-section">
             <div className={`chat-header ${darkMode ? "dark-mode" : ""}`}>
                {/* Button to toggle side nav on mobile */}
-              <span className="bars" onClick={handleShowSideBar}>
+              <span className="bars" onClick={() => setIsOpen(!isOpen)}>
                 <FaBars size={20} className="me-2" />
               </span> 
               <span className="robot-status">
@@ -363,6 +361,12 @@ const ChatApp = () => {
                   <Card className="p-2 message-bubble">{msg.text}</Card>
                 </div>
               ))}
+              <div className='message'>
+                 
+                    <Image src="" roundedCircle className="message-avatar" />
+                    <FaRobot size={40} className="me-2" />
+                  <Card className="p-2 message-bubble">chat</Card>
+                </div>
               <div ref={chatEndRef} />
             </div>
 
