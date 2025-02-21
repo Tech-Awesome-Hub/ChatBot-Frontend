@@ -437,5 +437,43 @@
     .chat-box {   border-radius: 0; }
       .chat-header {    padding: 8px;    font-size: 14px; }
        .message-bubble {    font-size: 12px;   padding: 8px;  }
+       .chat-section {
+        padding-top: env(safe-area-inset-top, 50px);
+        background-color: gray;
+       }
+
+       /* App header div */
+       .chat-header {
+        width: 100%;
+        margin: 0 auto;
+        height: 8%;
+        padding: 10px;
+        background: #13022d;
+
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+      }
+
+      /* Chat container */
+      .chat-messages {
+        flex: 1;
+        width: 90vw;
+        max-width: 89vw;
+        height: 100%;
+        
+        overflow-y: scroll;
+
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+
+        padding-bottom: 20px;
+        scroll-behavior: smooth;
+        background-color: #1d0840;
+      }
 }
   
