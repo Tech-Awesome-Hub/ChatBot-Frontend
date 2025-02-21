@@ -10,7 +10,7 @@ const App = () => {
     <Router>
       <div className="app-container">
         <Routes>
-          <Route path="/" element={<Navigate replace to="/login" />} />
+          <Route path="/" element={<Navigate replace to="/chat.ai" />} />
           <Route path="/login" element={<LoginForm />} />
           <Route path="/signup" element={<SignupForm />} />
           <Route path="/chat.ai" element={<ChatApp />} />
