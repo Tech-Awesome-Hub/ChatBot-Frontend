@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { Container, Form, Button, Card, InputGroup } from "react-bootstrap";
 import { FaUser, FaEnvelope, FaLock } from "react-icons/fa";
 
+import NotificationToast from "../components/notificationToast.components";
+
 const SignupForm = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -12,6 +14,10 @@ const SignupForm = () => {
     confirmPassword: "",
   });
   const navigate = useNavigate();
+  
+  const [showToast, setShowToast] = useState(false);
+  const toggleToast = () => setShowToast(!showToast);
+  const [alert, setAlert] = useState('');
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -20,7 +26,7 @@ const SignupForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (formData.password !== formData.confirmPassword) {
-      alert("Passwords do not match!");
+      setAlert("Passwords do not match!");
       return;
     }
 
@@ -34,15 +40,21 @@ const SignupForm = () => {
         withCredentials: true
       }
     );
-      // alert("Signup Successful!");
+      setAlert("Signup Successful!");
       navigate("/login");
     } catch (err) {
-      alert(err.response?.data?.detail || "Signup failed");
+      setAlert(err.response?.data?.detail || "Signup failed");
     }
+    toggleToast();
   };
 
   return (
     <Container className="auth-container">
+      <NotificationToast
+      show={showToast}
+      onClose={() => setShowToast(false)}
+      message={alert}
+      />
       <Card className="auth-card">
         <Card.Body>
           <h2 className="text-center">Create Account</h2>

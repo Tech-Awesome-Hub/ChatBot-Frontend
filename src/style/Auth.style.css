@@ -27,19 +27,20 @@
     flex-direction: column;
     align-items: center;
     color: #000 !important;
+    padding: 10px 0px;
 }
 
 /* 🌟 Form */
 .auth-form {
     width: 100%;
     max-width: 450px;
+    padding: 25px 10px;
 }
 
 /* 🌟 Form Inputs */
 .auth-card .form-control {
     border-radius: 3px;
     font-size: 18px;
-    width: 100%;
     max-width: 400px;
     height: 50px;
     border: 1px solid #ccc;

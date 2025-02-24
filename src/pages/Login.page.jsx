@@ -4,9 +4,15 @@ import { useNavigate } from "react-router-dom";
 import { Container, Form, Button, Card, InputGroup } from "react-bootstrap";
 import { FaEnvelope, FaLock } from "react-icons/fa";
 
+import NotificationToast from "../components/notificationToast.components";
+
 const LoginForm = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const navigate = useNavigate();
+  
+  const [showToast, setShowToast] = useState(false);
+  const toggleToast = () => setShowToast(!showToast);
+  const [alert, setAlert] = useState('');
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -24,15 +30,21 @@ const LoginForm = () => {
       const { access_token } = res.data;
       // Store token in localStorage
       localStorage.setItem("token", access_token);
-      alert("Login Successful!");
+      setAlert("Login Successful!");
       navigate("/chat.ai");
     } catch (err) {
-      alert(err.response?.data?.detail || "Login failed");
+      setAlert(err.response?.data?.detail || "Login failed");
     }
+    toggleToast();
   };
 
   return (
     <Container className="auth-container">
+      <NotificationToast
+      show={showToast}
+      onClose={() => setShowToast(false)}
+      message={alert}
+      />
       <Card className="auth-card">
         <Card.Body>
           <h2 className="text-center">Welcome Back</h2>

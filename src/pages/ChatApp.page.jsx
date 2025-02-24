@@ -41,6 +41,7 @@ const ChatApp = () => {
   // Refs
   const chatEndRef = useRef(null);
   const ws = useRef(null);
+  let didFetch = useRef(false);
   
   const [showProfile, setShowProfile] = useState(false);
   const [userProfile, setUserProfile] = useState({
@@ -96,6 +97,7 @@ const ChatApp = () => {
         }
       )
       .then((res) => {
+        // didFetch = false;
         setChatSessions((prev) => [...prev, res.data]);
         setNewTitle("");
       })
@@ -124,13 +126,15 @@ const ChatApp = () => {
   // 4) Load Messages for a Session
   const loadMessages = (sessionId) => {
     const token = localStorage.getItem("token");
-    console.log(token)
+    console.log(token);
     axios
       .get(`${API_URL}/chat_sessions/${sessionId}/messages`, {
         params: { token },
         withCredentials: true,
       })
       .then((res) => {
+        console.log('kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk')
+        console.log(res);
         setMessages(
           res.data.map((m) => ({
             text: m.text,
@@ -266,11 +270,12 @@ const ChatApp = () => {
    // 1) Load Chat Sessions on Mount
   useEffect(() => {
     // loadChatSessions();
-    // loadProfile()
-    if (chatSessions.length === 0) {
+    // loadProfile();
+    if (!didFetch.current) {
       loadChatSessions();
+      didFetch.current = true;
     }
-  }, [chatSessions]);
+  }, []);
 
   // 8) Scroll to bottom on new messages
   useEffect(() => {
@@ -280,7 +285,7 @@ const ChatApp = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <Container fluid className={`chat-container ${darkMode ? "dark-mode" : ""}`}>
-      <Row className={`chat-app ${darkMode ? "dark-mode" : ""}`}>
+      <Col className={`chat-app ${darkMode ? "dark-mode" : ""}`}>
         <Row className={`top-bar ${darkMode ? "dark-mode" : ""} d-none d-md-flex flex-row`}>
         
         </Row>
@@ -299,9 +304,9 @@ const ChatApp = () => {
           </Col>
 
           {/* Sidebar */}
-          <Col md={4} className={`sidebar d-none d-md-flex flex-column ${darkMode ? "dark-mode" : ""} ${isOpen ? "open" : ""}`}>
+          <Col md={4} className={`sidebar d-md-flex flex-column ${darkMode ? "dark-mode" : ""} ${isOpen ? "open" : ""}`}>
             <div className="sidebar-header">
-              <h4 className="text-white">Chats</h4>
+              <h4 className={`${darkMode ? "dark-mode" : ""}`}>Chats</h4>
               <Button variant="outline-light" size="sm" onClick={() => setDarkMode(!darkMode)} className={`${darkMode ? "dark-mode" : ""}`}>
                 {darkMode ? <FaSun /> : <FaMoon />}
               </Button>
@@ -364,12 +369,6 @@ const ChatApp = () => {
                   <Card className="p-2 message-bubble">{msg.text}</Card>
                 </div>
               ))}
-              {/* <div className='message'>
-                 
-                    <Image src="" roundedCircle className="message-avatar" />
-                    <FaRobot size={40} className="me-2" />
-                  <Card className="p-2 message-bubble">chat</Card>
-                </div> */}
               <div ref={chatEndRef} />
             </div>
 
@@ -380,7 +379,7 @@ const ChatApp = () => {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Type a message..."
-                className="rounded input"
+                className={`rounded input ${darkMode ? "dark-mode" : ""}`}
               />
               <Button
                 variant="secondary"
@@ -396,7 +395,7 @@ const ChatApp = () => {
             </Form>
           </Col>
         </Row>
-      </Row>
+      </Col>
 
       {/* Include the user profile modal */}
       <UserProfileModal
